@@ -43,8 +43,3 @@ wheels/
 *.avif
 
 # Fonts
-fonts/*
-*.ttf
-*.otf
-*.woff
-*.woff2
