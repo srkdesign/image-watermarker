@@ -5,5 +5,6 @@ description = "Image Watermark Creation Tool"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
+    "flet>=0.28.3",
     "pillow==11.2.1",
 ]

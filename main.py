@@ -1,23 +1,29 @@
 import os
-from PIL import Image, ImageDraw, ImageFont
+from PIL import Image, ImageDraw, ImageFont, UnidentifiedImageError
 
-def add_watermarks(input_folder="images", output_folder="watermarked", text="© srkdesign"):
+def add_watermarks(input_folder="images", output_folder="watermarked", text="© srkdesign", font_size=72, opacity=120, progress_callback=None):
     os.makedirs(output_folder, exist_ok=True)
 
     font_path = "fonts/PPNeueMontreal-Medium.otf"
-    font_size = 72
     font = ImageFont.truetype(font_path, font_size)
 
     ascent, descent = font.getmetrics()
     text_height = ascent + descent
 
-    opacity = 120
+    files = [f for f in os.listdir(input_folder) if f.lower().endswith((".jpg", ".jpeg", ".png", ".webp", ".avif"))]
+    total = len(files)
 
-    for filename in os.listdir(input_folder):
+    for i, filename in enumerate(files, start=1):
+
         image_path = os.path.join(input_folder, filename)
         output_path = os.path.join(output_folder, filename)
 
-        image = Image.open(image_path).convert("RGBA")
+        try:
+            image = Image.open(image_path).convert("RGBA")
+        except UnidentifiedImageError:
+            print(f"Not a valid image: {filename}")
+            continue
+
         watermark = Image.new("RGBA", image.size, (0,0,0,0))
         
         draw = ImageDraw.Draw(image)
@@ -41,6 +47,9 @@ def add_watermarks(input_folder="images", output_folder="watermarked", text="© 
 
         combined = Image.alpha_composite(image, watermark)
         combined.convert("RGB").save(output_path, "JPEG")
+
+        if progress_callback:
+            progress_callback(i, total, filename)
 
         print(f"Saved watermarked image: {filename}")
 
