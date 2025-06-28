@@ -1,10 +1,11 @@
 import os
 from PIL import Image, ImageDraw, ImageFont, UnidentifiedImageError
+from consts import BASE_DIRECTORY, INPUT_FOLDER, OUTPUT_FOLDER
 
-def add_watermarks(input_folder="images", output_folder="watermarked", text="© srkdesign", font_size=72, opacity=120, progress_callback=None):
+def add_watermarks(input_folder=os.path.join(BASE_DIRECTORY, INPUT_FOLDER), output_folder=os.path.join(BASE_DIRECTORY, OUTPUT_FOLDER), text="© srkdesign", font_size=72, opacity=120, margin_x_val=25, margin_y_val=-75, progress_callback=None):
     os.makedirs(output_folder, exist_ok=True)
 
-    font_path = "fonts/PPNeueMontreal-Medium.otf"
+    font_path = os.path.join(BASE_DIRECTORY, "fonts/PPNeueMontreal-Medium.otf")
     font = ImageFont.truetype(font_path, font_size)
 
     ascent, descent = font.getmetrics()
@@ -38,8 +39,8 @@ def add_watermarks(input_folder="images", output_folder="watermarked", text="© 
         step_x = rotated.width + 50
         step_y = rotated.height + 100
 
-        margin_x = 25
-        margin_y = -75
+        margin_x = margin_x_val
+        margin_y = margin_y_val
 
         for y in range(-image.height + margin_y, image.height * 2, step_y):
             for x in range(-image.width + margin_x, image.width * 2, step_x):

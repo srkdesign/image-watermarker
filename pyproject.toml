@@ -4,7 +4,24 @@ version = "0.1.0"
 description = "Image Watermark Creation Tool"
 readme = "README.md"
 requires-python = ">=3.12"
+authors = [
+    { name = "srkdesign", email = "srkdsgn@gmail.com", website = "https://srkdesign.pro" }
+]
 dependencies = [
     "flet>=0.28.3",
     "pillow==11.2.1",
 ]
+
+[tool.flet]
+name="Image Watermarker"
+product = "Image Watermarker"
+copyright = "Copyright (C) 2025, srkdesign"
+assets = [
+    "images",
+    "watermarked",
+    "fonts",
+    "translations.json",
+]
+
+[tool.flet.macos]
+build_arch = "arm64"
