@@ -1,0 +1,39 @@
+{
+  "translations": {
+    "en": {
+      "no_folder": "Cannot open folder:\n{folder_path}",
+      "upload_files": "Move images to folder",
+      "upload_files_btn": "Open directory",
+      "text_input": "Watermark",
+      "font_size_input": "Font size",
+      "opacity_input": "Opacity (0-255)",
+      "status_text": "Ready",
+      "status_text_processing": "Processing...",
+      "status_text_complete": "Watermarking Complete",
+      "status_text_error": "An error occurred: {err}",
+      "advanced_options_expansion_tile": "Advanced Settings",
+      "margin_x": "Margin X",
+      "margin_y": "Margin Y",
+      "run_btn": "Add watermark",
+      "show_output_btn": "Show results"
+    },
+    "ru": {
+      "no_folder": "Невозможно открыть папку: \n {folder_path}",
+      "upload_files": "Переместите изображения",
+      "upload_files_btn": "Открыть папку",
+      "text_input": "Водяной знак",
+      "font_size_input": "Размер шрифта",
+      "opacity_input": "Прозрачность (0-255)",
+      "status_text": "Готово",
+      "status_text_processing": "Обработка...",
+      "status_text_files": "Обработка {current} из {total}: {filename}",
+      "status_text_complete": "Водяные знаки добавлены",
+      "status_text_error": "Произошла ошибка",
+      "advanced_options_expansion_tile": "Продвинутые настройки",
+      "margin_x": "Отступ по горизонтали",
+      "margin_y": "Отступ по вертикали",
+      "run_btn": "Добавить водяной знак",
+      "show_output_btn": "Показать результат"
+    }
+  }
+}

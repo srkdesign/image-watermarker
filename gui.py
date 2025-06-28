@@ -1,64 +1,87 @@
-import flet as ft
 import os
+import json
+import locale
+import flet as ft
+from folder import open_input_folder
 from main import add_watermarks
-import platform
-import subprocess
+from translator import Translator
 
 APP_DIRECTORY = os.getcwd()
 
 INPUT_FOLDER = "images"
 OUTPUT_FOLDER = "watermarked"
 
-def open_input_folder(path):
-  if not os.path.isdir(path):
-    print(f"Folder doesn't exist: {path}")
-    return False
-  
-  system = platform.system()
-  try:
-    if system == "Windows":
-      os.startfile(path)
-    elif system == "Darwin":
-      subprocess.Popen(["open", path])
-    else:
-      subprocess.Popen(["xdg-open", path])
-    return True
-  except Exception as e:
-    print(f"Error opening folder: {e}")
-    return False
+with open("translations.json", "r", encoding="utf-8") as f:
+  data = json.load(f)
 
+translations = data["translations"]
 
 def main(page: ft.Page):
-  page.title = "Image Watermarker"
+  page.title = "Image Watermarker by srkdesign"
   page.padding=32
   page.spacing=32
   page.scroll="auto"
+
+  system_locale = locale.getlocale()[0]
+  current_lang = system_locale.split("_")[0]
+
+  if current_lang not in translations:
+    current_lang="en"
+  
+  translator = Translator(current_lang, translations)
 
   def create_open_folder_dialog(folder_path):
     def on_open_folder(e):
       success = open_input_folder(folder_path)
       if not success:
-        page.snack_bar = ft.SnackBar(ft.Text(f"Cannot open folder:\n{folder_path}"))
+        page.snack_bar = ft.SnackBar(ft.Text(translator.t_fmt("no_folder", folder_path=folder_path)))
         page.snack_bar.open = True
         page.update()
     return on_open_folder
 
-  upload_files_btn = ft.ElevatedButton("Open directory", icon="FOLDER",on_click=create_open_folder_dialog(os.path.join(APP_DIRECTORY, INPUT_FOLDER)))
+  upload_files_text = ft.Text()
 
-  text_input = ft.TextField(label="Watermark", value="© srkdesign")
-  font_size_input = ft.TextField(label="Font size", value="72", keyboard_type="number")
-  opacity_input = ft.TextField(label="Opacity (0-255)", value="120", keyboard_type="number")
+  upload_files_btn = ft.ElevatedButton( icon="FOLDER",on_click=create_open_folder_dialog(os.path.join(APP_DIRECTORY, INPUT_FOLDER)))
+
+  # def check_item_clicked(e):
+  #   e.control.checked = not e.control.checked
+  #   page.update()
+
+  # pb = ft.PopupMenuButton(
+  #   items=[
+  #     ft.PopupMenuItem(text="Item"),
+  #     ft.PopupMenuItem(text="Item"),
+  #   ]
+  # )
+
+  lang_selector = ft.Dropdown(
+    value=current_lang,
+    options=[
+      ft.dropdown.Option("en", "English"),
+      ft.dropdown.Option("ru", "Русский")
+    ]
+  )
+
+  def on_lang_change(e):
+    translator.set_lang(e.control.value)
+    page.update()
+
+  lang_selector.on_change = on_lang_change
+
+  text_input = ft.TextField(value="© srkdesign")
+  font_size_input = ft.TextField(value="72", keyboard_type="number")
+  opacity_input = ft.TextField(value="120", keyboard_type="number")
 
   progress_bar = ft.ProgressBar(value=0, expand=True)
-  status_text = ft.Text("Ready")
+  status_text = ft.Text(translator.t("status_text"))
 
   def update_progress(current, total, filename):
     progress_bar.value = current / total
-    status_text.value = f"Processing {current} of {total}: {filename}"
+    status_text.value = translator.t_fmt("status_text_files", current=current, total=total, filename=filename)
     page.update()
 
   def run_watermark(e):
-    status_text.value = "Processing..."
+    status_text.value = translator.t("status_text_processing")
     progress_bar.value = 0
     page.update()
 
@@ -71,13 +94,18 @@ def main(page: ft.Page):
         opacity = int(opacity_input.value),
         progress_callback=update_progress,
       )
-      status_text.value = "Watermarking Complete"
+      status_text.value = translator.t("status_text_complete")
     except Exception as err:
-      status_text.value = f"An error occurred: {err}"
+      status_text.value = translator.t_fmt("status_text_error", err=err)
     page.update()
 
-  advanced_options_expansion_tile = ft.ExpansionTile(
-    title=ft.Row(controls=[ft.Icon(ft.Icons.SETTINGS), ft.Text("Advanced Settings")]),
+  adv_options_text = ft.Text()
+
+  margin_x_input = ft.TextField(value="25", keyboard_type="number")
+  margin_y_input = ft.TextField(value="-75", keyboard_type="number")
+
+  adv_options = ft.ExpansionTile(
+    title=ft.Row(controls=[ft.Icon(ft.Icons.SETTINGS), adv_options_text]),
     visual_density=ft.VisualDensity.STANDARD,
     controls=[
       ft.Column(
@@ -86,10 +114,10 @@ def main(page: ft.Page):
         controls=[
           ft.Container(
             margin=ft.margin.only(top=32),
-            content=ft.TextField(label="Margin X", value="25", keyboard_type="number")), 
+            content=margin_x_input), 
           ft.Container(
             margin=ft.margin.only(bottom=32),
-            content=ft.TextField(label="Margin Y", value="-75", keyboard_type="number")
+            content=margin_y_input
           )
         ],
       )
@@ -97,9 +125,21 @@ def main(page: ft.Page):
     initially_expanded=False,
   )
 
-  run_btn = ft.ElevatedButton(icon="IMAGE",text="Add watermark", on_click=run_watermark)
+  run_btn = ft.ElevatedButton(icon="IMAGE", on_click=run_watermark)
 
-  show_output_btn = ft.ElevatedButton("Show results", icon="FOLDER",on_click=create_open_folder_dialog(os.path.join(APP_DIRECTORY, OUTPUT_FOLDER)))
+  show_output_btn = ft.ElevatedButton(icon="FOLDER",on_click=create_open_folder_dialog(os.path.join(APP_DIRECTORY, OUTPUT_FOLDER)))
+
+  translator.bind(upload_files_text, "value", "upload_files")
+  translator.bind(upload_files_btn, "text", "upload_files_btn")
+  translator.bind(text_input, "label", "text_input")
+  translator.bind(font_size_input, "label", "font_size_input")
+  translator.bind(opacity_input, "label", "opacity_input")
+  translator.bind(adv_options_text, "value", "advanced_options_expansion_tile")
+  translator.bind(margin_x_input, "label", "margin_x")
+  translator.bind(margin_y_input, "label", "margin_y")
+  translator.bind(run_btn, "text", "run_btn")
+  translator.bind(show_output_btn, "text", "show_output_btn")
+  translator.bind(status_text, "value", "status_text")
 
   layout = ft.Row(
     expand=True,
@@ -110,9 +150,21 @@ def main(page: ft.Page):
         spacing=32,
         controls=[
           ft.Row(
+            alignment=ft.MainAxisAlignment.SPACE_BETWEEN,
             controls=[
-              ft.Text("Move images to folder"),
-              upload_files_btn,
+              ft.Row(
+                controls=[
+                  upload_files_text,
+                  upload_files_btn,
+                ]
+              ),
+              ft.Row(
+                controls=[
+                  lang_selector,
+                  # pb,
+                ]
+              ),
+              
             ]
           ),
           text_input,
@@ -120,7 +172,7 @@ def main(page: ft.Page):
           opacity_input,
           ft.Container(
             expand=True,
-            content=advanced_options_expansion_tile,
+            content=adv_options,
           ),
           ft.Row(
             spacing=16,
