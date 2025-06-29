@@ -24,9 +24,8 @@ assets = [
 ]
 
 [tool.flet.packaging]
-icon = "assets/icon"
+icon = "assets/AppIcon"
 include = ["*.py", "assets/*"]
 
 [tool.flet.macos]
 build_arch = "arm64"
-entitlement."com.apple.security.files.user-selected.read-write" = true
