@@ -59,10 +59,14 @@ def main(page: ft.Page):
       e.control.checked = not e.control.checked
       page.update()
 
+    pb_about = ft.PopupMenuItem(icon="INFO", on_click=lambda e: page.open(about_dlg))
+
+    pb_website = ft.PopupMenuItem(icon="WEB", on_click=open_website)
+
     pb = ft.PopupMenuButton(
       items=[
-        ft.PopupMenuItem(icon="INFO", text="About this app", on_click=lambda e: page.open(about_dlg)),
-        ft.PopupMenuItem(icon="WEB",text="Author's website", on_click=open_website),
+        pb_about,
+        pb_website,
       ]
     )
 
@@ -152,6 +156,8 @@ def main(page: ft.Page):
     translator.bind(run_btn, "text", "run_btn")
     translator.bind(show_output_btn, "text", "show_output_btn")
     translator.bind(status_text, "value", "status_text")
+    translator.bind(pb_about, "text", "pb_about"),
+    translator.bind(pb_website, "text", "pb_website")
 
     layout = ft.Row(
       expand=True,

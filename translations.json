@@ -15,7 +15,9 @@
       "margin_x": "Margin X",
       "margin_y": "Margin Y",
       "run_btn": "Add watermark",
-      "show_output_btn": "Show results"
+      "show_output_btn": "Show results",
+      "pb_about": "About this app",
+      "pb_website": "Author's website"
     },
     "ru": {
       "no_folder": "Невозможно открыть папку: \n {folder_path}",
@@ -33,7 +35,9 @@
       "margin_x": "Отступ по горизонтали",
       "margin_y": "Отступ по вертикали",
       "run_btn": "Добавить водяной знак",
-      "show_output_btn": "Показать результат"
+      "show_output_btn": "Показать результат",
+      "pb_about": "О приложении",
+      "pb_website": "Сайт автора"
     }
   }
 }

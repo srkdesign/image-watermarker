@@ -37,7 +37,8 @@ wheels/
 .venv
 
 # Images
-*.png
+images/*.png
+watermarked/*.png
 *.jpg
 *.jpeg
 *.webp
