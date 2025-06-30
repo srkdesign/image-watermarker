@@ -25,7 +25,7 @@ assets = [
 ]
 
 [tool.flet.packaging]
-icon = "assets/AppIcon"
+icon = "assets/AppIcon.png"
 include = ["*.py", "assets/*"]
 
 [tool.flet.macos]
