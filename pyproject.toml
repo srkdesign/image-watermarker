@@ -30,3 +30,6 @@ include = ["*.py", "assets/*"]
 
 [tool.flet.macos]
 build_arch = "arm64"
+
+[tool.flet.packaging.mac]
+entitlements = "macos/entitlements.plist"
