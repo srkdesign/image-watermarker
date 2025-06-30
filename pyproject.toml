@@ -16,17 +16,9 @@ dependencies = [
 name="Image Watermarker"
 product = "Image Watermarker"
 copyright = "Copyright (C) 2025, srkdesign"
-assets = [
-    "images",
-    "watermarked",
-    "fonts",
-    "translations.json",
-    "macos/entitlements.plist",
-]
 
-[tool.flet.packaging]
-icon = "AppIcon.png"
-include = ["*.py"]
+[tool.flet.app]
+path = "src"
 
 [tool.flet.macos]
 build_arch = "arm64"

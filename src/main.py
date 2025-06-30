@@ -4,7 +4,7 @@ import locale
 import traceback
 import flet as ft
 from folder import open_input_folder
-from main import add_watermarks
+from watermark import add_watermarks
 from translator import Translator
 from consts import BASE_DIRECTORY, INPUT_FOLDER, OUTPUT_FOLDER
 
@@ -219,4 +219,4 @@ def main(page: ft.Page):
     page.update()
 
 if __name__ == "__main__":
-  ft.app(target=main, assets_dir="assets")
+  ft.app(target=main)
