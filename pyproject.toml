@@ -17,7 +17,6 @@ name="Image Watermarker"
 product = "Image Watermarker"
 copyright = "Copyright (C) 2025, srkdesign"
 assets = [
-    "assets",
     "images",
     "watermarked",
     "fonts",
@@ -25,11 +24,12 @@ assets = [
 ]
 
 [tool.flet.packaging]
-icon = "assets/AppIcon.png"
-include = ["*.py", "assets/*"]
+icon = "AppIcon.png"
+include = ["*.py"]
 
 [tool.flet.macos]
 build_arch = "arm64"
+entitlement."com.apple.security.files.user-selected.read-write" = true
 
 [tool.flet.packaging.mac]
 entitlements = "macos/entitlements.plist"
