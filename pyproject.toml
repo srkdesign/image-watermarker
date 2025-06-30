@@ -21,6 +21,7 @@ assets = [
     "watermarked",
     "fonts",
     "translations.json",
+    "macos/entitlements.plist",
 ]
 
 [tool.flet.packaging]
@@ -29,7 +30,6 @@ include = ["*.py"]
 
 [tool.flet.macos]
 build_arch = "arm64"
+entitlement."com.apple.security.app-sandbox" = false
 entitlement."com.apple.security.files.user-selected.read-write" = true
-
-[tool.flet.packaging.mac]
-entitlements = "macos/entitlements.plist"
+entitlement."com.apple.security.cs.disable-library-validation" = true

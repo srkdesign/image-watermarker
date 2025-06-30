@@ -54,7 +54,7 @@ jobs:
 
       - name: Flet Build macOS
         run: |
-          flet build macos --verbose --build-number=$BUILD_NUMBER --build-version=$BUILD_VERSION --module-name gui --macos-entitlements=macos/entitlements.plist
+          flet build macos --verbose --build-number=$BUILD_NUMBER --build-version=$BUILD_VERSION --module-name gui --macos-entitlements com.apple.security.app-sandbox=False com.apple.security.files.user-selected.read-write=True com.apple.security.cs.disable-library-validation=True
 
       - name: Upload macOS Artifact
         uses: actions/upload-artifact@v4.3.4
