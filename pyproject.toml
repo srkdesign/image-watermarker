@@ -16,6 +16,10 @@ dependencies = [
 name="Image Watermarker"
 product = "Image Watermarker"
 copyright = "Copyright (C) 2025, srkdesign"
+pyinstaller-args = [
+    "--collect-submodules=PIL",
+    "--collect-binaries=PIL"
+]
 
 [tool.flet.app]
 path = "src"
