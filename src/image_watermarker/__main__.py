@@ -1,4 +1,4 @@
-from pythonapp.app import main
+from image_watermarker.app import main
 
 
 if __name__ == "__main__":

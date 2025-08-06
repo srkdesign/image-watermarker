@@ -4,25 +4,29 @@ version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.12"
-dependencies = []
+dependencies = [
+    "briefcase>=0.3.24",
+    "pillow>=11.3.0",
+    "pyside6>=6.9.1",
+]
 
 # This project was generated with 0.3.24 using template: https://github.com/beeware/briefcase-template @ v0.3.24
 [tool.briefcase]
 project_name = "Python App"
-bundle = "com.example"
+bundle = "pro.srkdesign"
 version = "0.0.1"
-url = "https://example.com/pythonapp"
+url = "https://srkdesign.pro/apps/image-watermarker"
 license.file = "LICENSE"
 author = "srkdesign"
 author_email = "99723068+srkdesign@users.noreply.github.com"
 
-[tool.briefcase.app.pythonapp]
+[tool.briefcase.app.image_watermarker]
 formal_name = "Python App"
 description = "My first application"
 long_description = """More details about the app should go here.
 """
 sources = [
-    "src/pythonapp",
+    "src/image_watermarker",
 ]
 test_sources = [
     "tests",
@@ -36,7 +40,7 @@ test_requires = [
     "pytest",
 ]
 
-[tool.briefcase.app.pythonapp.macOS]
+[tool.briefcase.app.image_watermarker.macOS]
 universal_build = true
 # As of Pyside 6.8, PySide enforces a macOS 12 minimum on wheels.
 min_os_version = "12.0"
@@ -44,11 +48,11 @@ requires = [
     "std-nslog~=1.0.3",
 ]
 
-[tool.briefcase.app.pythonapp.linux]
+[tool.briefcase.app.image_watermarker.linux]
 requires = [
 ]
 
-[tool.briefcase.app.pythonapp.linux.system.debian]
+[tool.briefcase.app.image_watermarker.linux.system.debian]
 system_requires = [
 ]
 
@@ -75,7 +79,7 @@ system_runtime_requires = [
     "libdbus-1-3",
 ]
 
-[tool.briefcase.app.pythonapp.linux.system.rhel]
+[tool.briefcase.app.image_watermarker.linux.system.rhel]
 system_requires = [
 ]
 
@@ -83,7 +87,7 @@ system_runtime_requires = [
     "qt6-qtbase-gui",
 ]
 
-[tool.briefcase.app.pythonapp.linux.system.suse]
+[tool.briefcase.app.image_watermarker.linux.system.suse]
 system_requires = [
 ]
 
@@ -92,7 +96,7 @@ system_runtime_requires = [
     "libQt6Gui6",
 ]
 
-[tool.briefcase.app.pythonapp.linux.system.arch]
+[tool.briefcase.app.image_watermarker.linux.system.arch]
 system_requires = [
 ]
 
@@ -100,7 +104,7 @@ system_runtime_requires = [
     "qt6-base",
 ]
 
-[tool.briefcase.app.pythonapp.linux.appimage]
+[tool.briefcase.app.image_watermarker.linux.appimage]
 manylinux = "manylinux_2_28"
 
 system_requires = [
@@ -110,23 +114,23 @@ system_requires = [
 linuxdeploy_plugins = [
 ]
 
-[tool.briefcase.app.pythonapp.linux.flatpak]
+[tool.briefcase.app.image_watermarker.linux.flatpak]
 flatpak_runtime = "org.kde.Platform"
 flatpak_runtime_version = "6.9"
 flatpak_sdk = "org.kde.Sdk"
 
-[tool.briefcase.app.pythonapp.windows]
+[tool.briefcase.app.image_watermarker.windows]
 requires = [
 ]
 
 # Mobile deployments
-[tool.briefcase.app.pythonapp.iOS]
+[tool.briefcase.app.image_watermarker.iOS]
 supported = false
 
-[tool.briefcase.app.pythonapp.android]
+[tool.briefcase.app.image_watermarker.android]
 supported = false
 
 # Web deployments
-[tool.briefcase.app.pythonapp.web]
+[tool.briefcase.app.image_watermarker.web]
 supported = false
 

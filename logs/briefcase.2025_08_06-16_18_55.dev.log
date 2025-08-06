@@ -1,0 +1,403 @@
+Date/Time:       2025-08-06 16:18:55 
+Command line:    /Volumes/Expansion/Projects/image-watermarker/.venv/bin/briefcase dev
+
+OS Release:      Darwin 24.5.0
+OS Version:      Darwin Kernel Version 24.5.0: Tue Apr 22 19:54:43 PDT 2025; root:xnu-11417.121.6~2/RELEASE_ARM64_T8132
+Architecture:    arm64
+Platform:        macOS-15.5-arm64-arm-64bit
+
+Python exe:      /Volumes/Expansion/Projects/image-watermarker/.venv/bin/python3
+Python version:  3.12.11 (main, Jun 12 2025, 12:22:42) [Clang 20.1.4 ]
+Virtual env:     True
+Conda env:       False
+
+Briefcase:       0.3.24
+Target platform: macOS
+Target format:   None
+
+Environment Variables:
+	COLORTERM=truecolor
+	COMMAND_MODE=unix2003
+	GIT_ASKPASS=********************
+	HOME=/Users/srk
+	HOMEBREW_CELLAR=/opt/homebrew/Cellar
+	HOMEBREW_PREFIX=/opt/homebrew
+	HOMEBREW_REPOSITORY=/opt/homebrew
+	INFOPATH=/opt/homebrew/share/info:/opt/homebrew/share/info:
+	LANG=en_US.UTF-8
+	LC_CTYPE=UTF-8
+	LOGNAME=srk
+	MallocNanoZone=0
+	NVM_BIN=/Users/srk/.nvm/versions/node/v22.16.0/bin
+	NVM_CD_FLAGS=-q
+	NVM_DIR=/Users/srk/.nvm
+	NVM_INC=/Users/srk/.nvm/versions/node/v22.16.0/include/node
+	OLDPWD=/Volumes/Expansion/Projects/image-watermarker
+	ORIGINAL_XDG_CURRENT_DESKTOP=undefined
+	PATH=/Volumes/Expansion/Projects/image-watermarker/.venv/bin:/Users/srk/.nvm/versions/node/v22.16.0/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/Library/Apple/usr/bin:/Users/srk/.local/bin:/Users/srk/.nvm/versions/node/v22.16.0/bin
+	PS1=(image-watermarker) %n@%m %1~ %# 
+	PWD=/Volumes/Expansion/Projects/image-watermarker
+	SHELL=/bin/zsh
+	SHLVL=3
+	SSH_AUTH_SOCK=/private/tmp/com.apple.launchd.ZbyOPEM0Rz/Listeners
+	TERM=xterm-256color
+	TERM_PROGRAM=vscode
+	TERM_PROGRAM_VERSION=1.102.3
+	TERM_SESSION_ID=22F675E3-9672-4A37-AF26-648C5E18CD5F
+	TMPDIR=/var/folders/5z/x17fjkbj0ngf4yn630d6r9v40000gn/T/
+	USER=srk
+	USER_ZDOTDIR=/Users/srk
+	VIRTUAL_ENV=/Volumes/Expansion/Projects/image-watermarker/.venv
+	VIRTUAL_ENV_PROMPT=image-watermarker
+	VSCODE_GIT_ASKPASS_EXTRA_ARGS=********************
+	VSCODE_GIT_ASKPASS_MAIN=********************
+	VSCODE_GIT_ASKPASS_NODE=********************
+	VSCODE_GIT_IPC_HANDLE=/var/folders/5z/x17fjkbj0ngf4yn630d6r9v40000gn/T/vscode-git-31f47804d4.sock
+	VSCODE_INJECTION=1
+	VSCODE_PROFILE_INITIALIZED=1
+	XPC_FLAGS=0x0
+	XPC_SERVICE_NAME=0
+	ZDOTDIR=/Users/srk
+	_=/Volumes/Expansion/Projects/image-watermarker/.venv/bin/briefcase
+	__CFBundleIdentifier=com.microsoft.VSCode
+	__CF_USER_TEXT_ENCODING=0x1F5:0x0:0x0
+
+pyproject.toml:
+[project]
+name = "image-watermarker"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "briefcase>=0.3.24",
+    "pyside6>=6.9.1",
+]
+
+# This project was generated with 0.3.24 using template: https://github.com/beeware/briefcase-template @ v0.3.24
+[tool.briefcase]
+project_name = "Python App"
+bundle = "pro.srkdesign"
+version = "0.0.1"
+url = "https://srkdesign.pro/apps/image-watermarker"
+license.file = "LICENSE"
+author = "srkdesign"
+author_email = "99723068+srkdesign@users.noreply.github.com"
+
+[tool.briefcase.app.image_watermarker]
+formal_name = "Python App"
+description = "My first application"
+long_description = """More details about the app should go here.
+"""
+sources = [
+    "src/image_watermarker",
+]
+test_sources = [
+    "tests",
+]
+
+requires = [
+    "PySide6-Essentials~=6.8",
+    # "PySide6-Addons~=6.8",
+]
+test_requires = [
+    "pytest",
+]
+
+[tool.briefcase.app.image_watermarker.macOS]
+universal_build = true
+# As of Pyside 6.8, PySide enforces a macOS 12 minimum on wheels.
+min_os_version = "12.0"
+requires = [
+    "std-nslog~=1.0.3",
+]
+
+[tool.briefcase.app.image_watermarker.linux]
+requires = [
+]
+
+[tool.briefcase.app.image_watermarker.linux.system.debian]
+system_requires = [
+]
+
+system_runtime_requires = [
+    # Derived from https://doc.qt.io/qt-6/linux-requirements.html
+    "libxext6",
+    "libxrender1",
+    "libx11-xcb1",
+    "libxkbcommon-x11-0",
+    "libxcb-image0",
+    "libxcb-cursor0",
+    "libxcb-shape0",
+    "libxcb-randr0",
+    "libxcb-xfixes0",
+    "libxcb-sync1",
+    "libxcb-icccm4",
+    "libxcb-keysyms1",
+    "libfontconfig1",
+    "libsm6",
+    "libice6",
+    "libglib2.0-0",
+    "libgl1",
+    "libegl1",
+    "libdbus-1-3",
+]
+
+[tool.briefcase.app.image_watermarker.linux.system.rhel]
+system_requires = [
+]
+
+system_runtime_requires = [
+    "qt6-qtbase-gui",
+]
+
+[tool.briefcase.app.image_watermarker.linux.system.suse]
+system_requires = [
+]
+
+system_runtime_requires = [
+    "libgthread-2_0-0",
+    "libQt6Gui6",
+]
+
+[tool.briefcase.app.image_watermarker.linux.system.arch]
+system_requires = [
+]
+
+system_runtime_requires = [
+    "qt6-base",
+]
+
+[tool.briefcase.app.image_watermarker.linux.appimage]
+manylinux = "manylinux_2_28"
+
+system_requires = [
+# ?? FIXME
+]
+
+linuxdeploy_plugins = [
+]
+
+[tool.briefcase.app.image_watermarker.linux.flatpak]
+flatpak_runtime = "org.kde.Platform"
+flatpak_runtime_version = "6.9"
+flatpak_sdk = "org.kde.Sdk"
+
+[tool.briefcase.app.image_watermarker.windows]
+requires = [
+]
+
+# Mobile deployments
+[tool.briefcase.app.image_watermarker.iOS]
+supported = false
+
+[tool.briefcase.app.image_watermarker.android]
+supported = false
+
+# Web deployments
+[tool.briefcase.app.image_watermarker.web]
+supported = false
+
+Briefcase Log:
+[16:18:53]                                                                                                                                                                dev.py:238
+           [image_watermarker] Installing requirements...                                                                                                                 dev.py:238
+           Installing dev requirements... started                                                                                                                          dev.py:89
+                                                                                                                                                                   subprocess.py:838
+           >>> Running Command:                                                                                                                                    subprocess.py:838
+           >>>     /Volumes/Expansion/Projects/image-watermarker/.venv/bin/python3 -u -X utf8 -m pip install --upgrade 'briefcase>=0.3.24' 'pyside6>=6.9.1'        subprocess.py:838
+           'PySide6-Essentials~=6.8' 'std-nslog~=1.0.3' pytest                                                                                                                      
+           >>> Working Directory:                                                                                                                                  subprocess.py:838
+           >>>     /Volumes/Expansion/Projects/image-watermarker                                                                                                   subprocess.py:838
+[16:18:54] Requirement already satisfied: briefcase>=0.3.24 in ./.venv/lib/python3.12/site-packages (0.3.24)                                                       subprocess.py:195
+           Requirement already satisfied: pyside6>=6.9.1 in ./.venv/lib/python3.12/site-packages (6.9.1)                                                           subprocess.py:195
+           Requirement already satisfied: PySide6-Essentials~=6.8 in ./.venv/lib/python3.12/site-packages (6.9.1)                                                  subprocess.py:195
+           Collecting std-nslog~=1.0.3                                                                                                                             subprocess.py:195
+             Using cached std_nslog-1.0.3-py3-none-any.whl.metadata (3.6 kB)                                                                                       subprocess.py:195
+[16:18:55] Collecting pytest                                                                                                                                       subprocess.py:195
+             Using cached pytest-8.4.1-py3-none-any.whl.metadata (7.7 kB)                                                                                          subprocess.py:195
+           Requirement already satisfied: shiboken6==6.9.1 in ./.venv/lib/python3.12/site-packages (from PySide6-Essentials~=6.8) (6.9.1)                          subprocess.py:195
+           Requirement already satisfied: packaging>=24.2 in ./.venv/lib/python3.12/site-packages (from briefcase>=0.3.24) (25.0)                                  subprocess.py:195
+           Requirement already satisfied: pip>=24.3 in ./.venv/lib/python3.12/site-packages (from briefcase>=0.3.24) (25.2)                                        subprocess.py:195
+           Requirement already satisfied: setuptools>=60 in ./.venv/lib/python3.12/site-packages (from briefcase>=0.3.24) (80.9.0)                                 subprocess.py:195
+           Requirement already satisfied: wheel>=0.37 in ./.venv/lib/python3.12/site-packages (from briefcase>=0.3.24) (0.45.1)                                    subprocess.py:195
+           Requirement already satisfied: build>=0.10 in ./.venv/lib/python3.12/site-packages (from briefcase>=0.3.24) (1.3.0)                                     subprocess.py:195
+           Requirement already satisfied: truststore>=0.10.1 in ./.venv/lib/python3.12/site-packages (from briefcase>=0.3.24) (0.10.3)                             subprocess.py:195
+           Requirement already satisfied: cookiecutter<3.0,>=2.6.0 in ./.venv/lib/python3.12/site-packages (from briefcase>=0.3.24) (2.6.0)                        subprocess.py:195
+           Requirement already satisfied: dmgbuild<2.0,>=1.6.4 in ./.venv/lib/python3.12/site-packages (from briefcase>=0.3.24) (1.6.5)                            subprocess.py:195
+           Requirement already satisfied: GitPython<4.0,>=3.1 in ./.venv/lib/python3.12/site-packages (from briefcase>=0.3.24) (3.1.45)                            subprocess.py:195
+           Requirement already satisfied: platformdirs<5.0,>=2.6 in ./.venv/lib/python3.12/site-packages (from briefcase>=0.3.24) (4.3.8)                          subprocess.py:195
+           Requirement already satisfied: psutil<8.0,>=5.9 in ./.venv/lib/python3.12/site-packages (from briefcase>=0.3.24) (7.0.0)                                subprocess.py:195
+           Requirement already satisfied: python-dateutil>=2.9.0.post0 in ./.venv/lib/python3.12/site-packages (from briefcase>=0.3.24) (2.9.0.post0)              subprocess.py:195
+           Requirement already satisfied: httpx<1.0,>=0.20 in ./.venv/lib/python3.12/site-packages (from briefcase>=0.3.24) (0.28.1)                               subprocess.py:195
+           Requirement already satisfied: rich<15.0,>=12.6 in ./.venv/lib/python3.12/site-packages (from briefcase>=0.3.24) (14.1.0)                               subprocess.py:195
+           Requirement already satisfied: tomli_w<2.0,>=1.0 in ./.venv/lib/python3.12/site-packages (from briefcase>=0.3.24) (1.2.0)                               subprocess.py:195
+           Requirement already satisfied: binaryornot>=0.4.4 in ./.venv/lib/python3.12/site-packages (from cookiecutter<3.0,>=2.6.0->briefcase>=0.3.24) (0.4.4)    subprocess.py:195
+           Requirement already satisfied: Jinja2<4.0.0,>=2.7 in ./.venv/lib/python3.12/site-packages (from cookiecutter<3.0,>=2.6.0->briefcase>=0.3.24) (3.1.6)    subprocess.py:195
+           Requirement already satisfied: click<9.0.0,>=7.0 in ./.venv/lib/python3.12/site-packages (from cookiecutter<3.0,>=2.6.0->briefcase>=0.3.24) (8.2.1)     subprocess.py:195
+           Requirement already satisfied: pyyaml>=5.3.1 in ./.venv/lib/python3.12/site-packages (from cookiecutter<3.0,>=2.6.0->briefcase>=0.3.24) (6.0.2)         subprocess.py:195
+           Requirement already satisfied: python-slugify>=4.0.0 in ./.venv/lib/python3.12/site-packages (from cookiecutter<3.0,>=2.6.0->briefcase>=0.3.24) (8.0.4) subprocess.py:195
+           Requirement already satisfied: requests>=2.23.0 in ./.venv/lib/python3.12/site-packages (from cookiecutter<3.0,>=2.6.0->briefcase>=0.3.24) (2.32.4)     subprocess.py:195
+           Requirement already satisfied: arrow in ./.venv/lib/python3.12/site-packages (from cookiecutter<3.0,>=2.6.0->briefcase>=0.3.24) (1.3.0)                 subprocess.py:195
+           Requirement already satisfied: ds_store>=1.1.0 in ./.venv/lib/python3.12/site-packages (from dmgbuild<2.0,>=1.6.4->briefcase>=0.3.24) (1.3.1)           subprocess.py:195
+           Requirement already satisfied: mac_alias>=2.0.1 in ./.venv/lib/python3.12/site-packages (from dmgbuild<2.0,>=1.6.4->briefcase>=0.3.24) (2.2.2)          subprocess.py:195
+           Requirement already satisfied: gitdb<5,>=4.0.1 in ./.venv/lib/python3.12/site-packages (from GitPython<4.0,>=3.1->briefcase>=0.3.24) (4.0.12)           subprocess.py:195
+           Requirement already satisfied: smmap<6,>=3.0.1 in ./.venv/lib/python3.12/site-packages (from gitdb<5,>=4.0.1->GitPython<4.0,>=3.1->briefcase>=0.3.24)   subprocess.py:195
+           (5.0.2)                                                                                                                                                                  
+           Requirement already satisfied: anyio in ./.venv/lib/python3.12/site-packages (from httpx<1.0,>=0.20->briefcase>=0.3.24) (4.10.0)                        subprocess.py:195
+           Requirement already satisfied: certifi in ./.venv/lib/python3.12/site-packages (from httpx<1.0,>=0.20->briefcase>=0.3.24) (2025.8.3)                    subprocess.py:195
+           Requirement already satisfied: httpcore==1.* in ./.venv/lib/python3.12/site-packages (from httpx<1.0,>=0.20->briefcase>=0.3.24) (1.0.9)                 subprocess.py:195
+           Requirement already satisfied: idna in ./.venv/lib/python3.12/site-packages (from httpx<1.0,>=0.20->briefcase>=0.3.24) (3.10)                           subprocess.py:195
+           Requirement already satisfied: h11>=0.16 in ./.venv/lib/python3.12/site-packages (from httpcore==1.*->httpx<1.0,>=0.20->briefcase>=0.3.24) (0.16.0)     subprocess.py:195
+           Requirement already satisfied: MarkupSafe>=2.0 in ./.venv/lib/python3.12/site-packages (from                                                            subprocess.py:195
+           Jinja2<4.0.0,>=2.7->cookiecutter<3.0,>=2.6.0->briefcase>=0.3.24) (3.0.2)                                                                                                 
+           Requirement already satisfied: markdown-it-py>=2.2.0 in ./.venv/lib/python3.12/site-packages (from rich<15.0,>=12.6->briefcase>=0.3.24) (3.0.0)         subprocess.py:195
+           Requirement already satisfied: pygments<3.0.0,>=2.13.0 in ./.venv/lib/python3.12/site-packages (from rich<15.0,>=12.6->briefcase>=0.3.24) (2.19.2)      subprocess.py:195
+           Requirement already satisfied: PySide6-Addons==6.9.1 in ./.venv/lib/python3.12/site-packages (from pyside6>=6.9.1) (6.9.1)                              subprocess.py:195
+           Collecting iniconfig>=1 (from pytest)                                                                                                                   subprocess.py:195
+             Using cached iniconfig-2.1.0-py3-none-any.whl.metadata (2.7 kB)                                                                                       subprocess.py:195
+           Collecting pluggy<2,>=1.5 (from pytest)                                                                                                                 subprocess.py:195
+             Using cached pluggy-1.6.0-py3-none-any.whl.metadata (4.8 kB)                                                                                          subprocess.py:195
+           Requirement already satisfied: chardet>=3.0.2 in ./.venv/lib/python3.12/site-packages (from                                                             subprocess.py:195
+           binaryornot>=0.4.4->cookiecutter<3.0,>=2.6.0->briefcase>=0.3.24) (5.2.0)                                                                                                 
+           Requirement already satisfied: pyproject_hooks in ./.venv/lib/python3.12/site-packages (from build>=0.10->briefcase>=0.3.24) (1.2.0)                    subprocess.py:195
+           Requirement already satisfied: mdurl~=0.1 in ./.venv/lib/python3.12/site-packages (from markdown-it-py>=2.2.0->rich<15.0,>=12.6->briefcase>=0.3.24)     subprocess.py:195
+           (0.1.2)                                                                                                                                                                  
+           Requirement already satisfied: six>=1.5 in ./.venv/lib/python3.12/site-packages (from python-dateutil>=2.9.0.post0->briefcase>=0.3.24) (1.17.0)         subprocess.py:195
+           Requirement already satisfied: text-unidecode>=1.3 in ./.venv/lib/python3.12/site-packages (from                                                        subprocess.py:195
+           python-slugify>=4.0.0->cookiecutter<3.0,>=2.6.0->briefcase>=0.3.24) (1.3)                                                                                                
+           Requirement already satisfied: charset_normalizer<4,>=2 in ./.venv/lib/python3.12/site-packages (from                                                   subprocess.py:195
+           requests>=2.23.0->cookiecutter<3.0,>=2.6.0->briefcase>=0.3.24) (3.4.2)                                                                                                   
+           Requirement already satisfied: urllib3<3,>=1.21.1 in ./.venv/lib/python3.12/site-packages (from                                                         subprocess.py:195
+           requests>=2.23.0->cookiecutter<3.0,>=2.6.0->briefcase>=0.3.24) (2.5.0)                                                                                                   
+           Requirement already satisfied: sniffio>=1.1 in ./.venv/lib/python3.12/site-packages (from anyio->httpx<1.0,>=0.20->briefcase>=0.3.24) (1.3.1)           subprocess.py:195
+           Requirement already satisfied: typing_extensions>=4.5 in ./.venv/lib/python3.12/site-packages (from anyio->httpx<1.0,>=0.20->briefcase>=0.3.24)         subprocess.py:195
+           (4.14.1)                                                                                                                                                                 
+           Requirement already satisfied: types-python-dateutil>=2.8.10 in ./.venv/lib/python3.12/site-packages (from                                              subprocess.py:195
+           arrow->cookiecutter<3.0,>=2.6.0->briefcase>=0.3.24) (2.9.0.20250708)                                                                                                     
+           Using cached std_nslog-1.0.3-py3-none-any.whl (4.8 kB)                                                                                                  subprocess.py:195
+           Using cached pytest-8.4.1-py3-none-any.whl (365 kB)                                                                                                     subprocess.py:195
+           Using cached pluggy-1.6.0-py3-none-any.whl (20 kB)                                                                                                      subprocess.py:195
+           Using cached iniconfig-2.1.0-py3-none-any.whl (6.0 kB)                                                                                                  subprocess.py:195
+           Installing collected packages: std-nslog, pluggy, iniconfig, pytest                                                                                     subprocess.py:195
+                                                                                                                                                                   subprocess.py:195
+           Successfully installed iniconfig-2.1.0 pluggy-1.6.0 pytest-8.4.1 std-nslog-1.0.3                                                                        subprocess.py:195
+           >>> Return code: 0                                                                                                                                      subprocess.py:838
+                                                                                                                                                                   subprocess.py:838
+           Installing dev requirements... done                                                                                                                             dev.py:89
+                                                                                                                                                                          dev.py:248
+           [image_watermarker] Starting in dev mode...                                                                                                                    dev.py:248
+                                                                                                                                                                   subprocess.py:838
+           >>> Running Command:                                                                                                                                    subprocess.py:838
+           >>>     /Volumes/Expansion/Projects/image-watermarker/.venv/bin/python3 -c 'import runpy,                                                               subprocess.py:838
+           sys;sys.path.pop(0);sys.argv.extend([]);runpy.run_module("image_watermarker", run_name="__main__", alter_sys=True)'                                                      
+           >>> Working Directory:                                                                                                                                  subprocess.py:838
+           >>>     /Users/srk                                                                                                                                      subprocess.py:838
+           >>> Environment Overrides:                                                                                                                              subprocess.py:838
+           >>>     PYTHONPATH=/Volumes/Expansion/Projects/image-watermarker/src                                                                                    subprocess.py:838
+           >>>     PYTHONUNBUFFERED=1                                                                                                                              subprocess.py:838
+           >>>     PYTHONDEVMODE=1                                                                                                                                 subprocess.py:838
+           >>>     PYTHONUTF8=1                                                                                                                                    subprocess.py:838
+           ===========================================================================                                                                                    run.py:169
+           Traceback (most recent call last):                                                                                                                      subprocess.py:195
+             File "<string>", line 1, in <module>                                                                                                                  subprocess.py:195
+             File "<frozen runpy>", line 226, in run_module                                                                                                        subprocess.py:195
+             File "<frozen runpy>", line 98, in _run_module_code                                                                                                   subprocess.py:195
+             File "<frozen runpy>", line 88, in _run_code                                                                                                          subprocess.py:195
+             File "/Volumes/Expansion/Projects/image-watermarker/src/image_watermarker/__main__.py", line 1, in <module>                                           subprocess.py:195
+               from pythonapp.app import main                                                                                                                      subprocess.py:195
+           ModuleNotFoundError: No module named 'pythonapp'                                                                                                        subprocess.py:195
+                                                                                                                                                                      __main__.py:42
+           Problem running app image_watermarker.                                                                                                                     __main__.py:43
+           Saving log... started                                                                                                                                      console.py:433
+
+Main thread traceback:
+╭─────────────────────────────────────────────────────────────────────── Traceback (most recent call last) ────────────────────────────────────────────────────────────────────────╮
+│ /Volumes/Expansion/Projects/image-watermarker/.venv/lib/python3.12/site-packages/briefcase/__main__.py:27 in main                                                                │
+│                                                                                                                                                                                  │
+│   24 │   │   │   Path.cwd() / "pyproject.toml",                                                                                                                                  │
+│   25 │   │   │   overrides=overrides,                                                                                                                                            │
+│   26 │   │   )                                                                                                                                                                   │
+│ ❱ 27 │   │   command(**options)                                                                                                                                                  │
+│   28 │   except HelpText as e:                                                                                                                                                   │
+│   29 │   │   console.info()                                                                                                                                                      │
+│   30 │   │   console.info(str(e))                                                                                                                                                │
+│                                                                                                                                                                                  │
+│ ╭──────────────────────────────────────────────────────── locals ─────────────────────────────────────────────────────────╮                                                      │
+│ │       command = <briefcase.commands.dev.DevCommand object at 0x1035572f0>                                               │                                                      │
+│ │       console = <briefcase.console.Console object at 0x103d08440>                                                       │                                                      │
+│ │             e = BriefcaseCommandError('Problem running app image_watermarker.')                                         │                                                      │
+│ │ extra_cmdline = []                                                                                                      │                                                      │
+│ │       options = {'appname': None, 'update_requirements': False, 'run_app': True, 'test_mode': False, 'passthrough': []} │                                                      │
+│ │     overrides = {}                                                                                                      │                                                      │
+│ │        result = 200                                                                                                     │                                                      │
+│ ╰─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯                                                      │
+│                                                                                                                                                                                  │
+│ /Volumes/Expansion/Projects/image-watermarker/.venv/lib/python3.12/site-packages/briefcase/commands/dev.py:250 in __call__                                                       │
+│                                                                                                                                                                                  │
+│   247 │   │   │   else:                                                                                                                                                          │
+│   248 │   │   │   │   self.console.info("Starting in dev mode...", prefix=app.app_name)                                                                                          │
+│   249 │   │   │   env = self.get_environment(app)                                                                                                                                │
+│ ❱ 250 │   │   │   return self.run_dev_app(                                                                                                                                       │
+│   251 │   │   │   │   app,                                                                                                                                                       │
+│   252 │   │   │   │   env,                                                                                                                                                       │
+│   253 │   │   │   │   passthrough=[] if passthrough is None else passthrough,                                                                                                    │
+│                                                                                                                                                                                  │
+│ ╭────────────────────────────────────────────────────────────────────────── locals ───────────────────────────────────────────────────────────────────────────╮                  │
+│ │                 app = <pro.srkdesign.image-watermarker v0.0.1 AppConfig>                                                                                    │                  │
+│ │             appname = None                                                                                                                                  │                  │
+│ │      dist_info_path = PosixPath('/Volumes/Expansion/Projects/image-watermarker/src/image_watermarker.dist-info')                                            │                  │
+│ │                 env = {'PYTHONPATH': '/Volumes/Expansion/Projects/image-watermarker/src', 'PYTHONUNBUFFERED': '1', 'PYTHONDEVMODE': '1', 'PYTHONUTF8': '1'} │                  │
+│ │             options = {}                                                                                                                                    │                  │
+│ │         passthrough = []                                                                                                                                    │                  │
+│ │             run_app = True                                                                                                                                  │                  │
+│ │                self = <briefcase.commands.dev.DevCommand object at 0x1035572f0>                                                                             │                  │
+│ │           test_mode = False                                                                                                                                 │                  │
+│ │ update_requirements = False                                                                                                                                 │                  │
+│ ╰─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯                  │
+│                                                                                                                                                                                  │
+│ /Volumes/Expansion/Projects/image-watermarker/.venv/lib/python3.12/site-packages/briefcase/commands/dev.py:168 in run_dev_app                                                    │
+│                                                                                                                                                                                  │
+│   165 │   │   │   )                                                                                                                                                              │
+│   166 │   │   │                                                                                                                                                                  │
+│   167 │   │   │   # Start streaming logs for the app.                                                                                                                            │
+│ ❱ 168 │   │   │   self._stream_app_logs(                                                                                                                                         │
+│   169 │   │   │   │   app,                                                                                                                                                       │
+│   170 │   │   │   │   popen=app_popen,                                                                                                                                           │
+│   171 │   │   │   │   clean_output=False,                                                                                                                                        │
+│                                                                                                                                                                                  │
+│ ╭────────────────────────────────────────────────────────────────────── locals ───────────────────────────────────────────────────────────────────────╮                          │
+│ │         app = <pro.srkdesign.image-watermarker v0.0.1 AppConfig>                                                                                    │                          │
+│ │   app_popen = <Popen: returncode: 1 args: ['/Volumes/Expansion/Projects/image-watermarker/...>                                                      │                          │
+│ │     cmdline = [                                                                                                                                     │                          │
+│ │               │   '/Volumes/Expansion/Projects/image-watermarker/.venv/bin/python3',                                                                │                          │
+│ │               │   '-c',                                                                                                                             │                          │
+│ │               │   'import runpy, sys;sys.path.pop(0);sys.argv.extend([]);runpy.run_module("image_wa'+48                                             │                          │
+│ │               ]                                                                                                                                     │                          │
+│ │         env = {'PYTHONPATH': '/Volumes/Expansion/Projects/image-watermarker/src', 'PYTHONUNBUFFERED': '1', 'PYTHONDEVMODE': '1', 'PYTHONUTF8': '1'} │                          │
+│ │ main_module = 'image_watermarker'                                                                                                                   │                          │
+│ │     options = {}                                                                                                                                    │                          │
+│ │ passthrough = []                                                                                                                                    │                          │
+│ │        self = <briefcase.commands.dev.DevCommand object at 0x1035572f0>                                                                             │                          │
+│ ╰─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯                          │
+│                                                                                                                                                                                  │
+│ /Volumes/Expansion/Projects/image-watermarker/.venv/lib/python3.12/site-packages/briefcase/commands/run.py:200 in _stream_app_logs                                               │
+│                                                                                                                                                                                  │
+│   197 │   │   │   │   # If we're monitoring an actual app (not just a log stream),                                                                                               │
+│   198 │   │   │   │   # and the app didn't exit cleanly, surface the error to the user.                                                                                          │
+│   199 │   │   │   │   if popen.poll() != 0:                                                                                                                                      │
+│ ❱ 200 │   │   │   │   │   raise BriefcaseCommandError(f"Problem running app {app.app_name}.")                                                                                    │
+│   201 │   │                                                                                                                                                                      │
+│   202 │   │   except KeyboardInterrupt:                                                                                                                                          │
+│   203 │   │   │   pass  # Catch CTRL-C to exit normally                                                                                                                          │
+│                                                                                                                                                                                  │
+│ ╭──────────────────────────────────────────── locals ─────────────────────────────────────────────╮                                                                              │
+│ │          app = <pro.srkdesign.image-watermarker v0.0.1 AppConfig>                               │                                                                              │
+│ │ clean_filter = None                                                                             │                                                                              │
+│ │ clean_output = False                                                                            │                                                                              │
+│ │   log_filter = <briefcase.commands.run.LogFilter object at 0x105547290>                         │                                                                              │
+│ │   log_stream = False                                                                            │                                                                              │
+│ │        popen = <Popen: returncode: 1 args: ['/Volumes/Expansion/Projects/image-watermarker/...> │                                                                              │
+│ │         self = <briefcase.commands.dev.DevCommand object at 0x1035572f0>                        │                                                                              │
+│ ╰─────────────────────────────────────────────────────────────────────────────────────────────────╯                                                                              │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+BriefcaseCommandError: Problem running app image_watermarker.
