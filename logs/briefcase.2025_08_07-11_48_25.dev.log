@@ -1,0 +1,324 @@
+Date/Time:       2025-08-07 11:48:25 
+Command line:    /Volumes/Expansion/Projects/image-watermarker/.venv/bin/briefcase dev
+
+OS Release:      Darwin 24.5.0
+OS Version:      Darwin Kernel Version 24.5.0: Tue Apr 22 19:54:43 PDT 2025; root:xnu-11417.121.6~2/RELEASE_ARM64_T8132
+Architecture:    arm64
+Platform:        macOS-15.5-arm64-arm-64bit
+
+Python exe:      /Volumes/Expansion/Projects/image-watermarker/.venv/bin/python3
+Python version:  3.12.11 (main, Jun 12 2025, 12:22:42) [Clang 20.1.4 ]
+Virtual env:     True
+Conda env:       False
+
+Briefcase:       0.3.24
+Target platform: macOS
+Target format:   None
+
+Environment Variables:
+	BUNDLED_DEBUGPY_PATH=/Users/srk/.vscode/extensions/ms-python.debugpy-2025.10.0-darwin-arm64/bundled/libs/debugpy
+	COLORTERM=truecolor
+	COMMAND_MODE=unix2003
+	GIT_ASKPASS=********************
+	HOME=/Users/srk
+	HOMEBREW_CELLAR=/opt/homebrew/Cellar
+	HOMEBREW_PREFIX=/opt/homebrew
+	HOMEBREW_REPOSITORY=/opt/homebrew
+	INFOPATH=/opt/homebrew/share/info:/opt/homebrew/share/info:
+	LANG=en_US.UTF-8
+	LOGNAME=srk
+	MallocNanoZone=0
+	NVM_BIN=/Users/srk/.nvm/versions/node/v22.16.0/bin
+	NVM_CD_FLAGS=-q
+	NVM_DIR=/Users/srk/.nvm
+	NVM_INC=/Users/srk/.nvm/versions/node/v22.16.0/include/node
+	OLDPWD=/Volumes/Expansion/Projects/image-watermarker
+	ORIGINAL_XDG_CURRENT_DESKTOP=undefined
+	PATH=/Volumes/Expansion/Projects/image-watermarker/.venv/bin:/Users/srk/.nvm/versions/node/v22.16.0/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/Library/Apple/usr/bin:/Users/srk/.local/bin:/Users/srk/.nvm/versions/node/v22.16.0/bin:/Users/srk/.vscode/extensions/ms-python.debugpy-2025.10.0-darwin-arm64/bundled/scripts/noConfigScripts
+	PS1=(image-watermarker) %n@%m %1~ %# 
+	PWD=/Volumes/Expansion/Projects/image-watermarker
+	PYDEVD_DISABLE_FILE_VALIDATION=1
+	SHELL=/bin/zsh
+	SHLVL=1
+	SSH_AUTH_SOCK=/private/tmp/com.apple.launchd.PSALbGsmHA/Listeners
+	TERM=xterm-256color
+	TERM_PROGRAM=vscode
+	TERM_PROGRAM_VERSION=1.102.3
+	TMPDIR=/var/folders/5z/x17fjkbj0ngf4yn630d6r9v40000gn/T/
+	USER=srk
+	VIRTUAL_ENV=/Volumes/Expansion/Projects/image-watermarker/.venv
+	VIRTUAL_ENV_PROMPT=image-watermarker
+	VSCODE_DEBUGPY_ADAPTER_ENDPOINTS=/Users/srk/.vscode/extensions/ms-python.debugpy-2025.10.0-darwin-arm64/.noConfigDebugAdapterEndpoints/endpoint-ea8f6c60b957b4e4.txt
+	VSCODE_GIT_ASKPASS_EXTRA_ARGS=********************
+	VSCODE_GIT_ASKPASS_MAIN=********************
+	VSCODE_GIT_ASKPASS_NODE=********************
+	VSCODE_GIT_IPC_HANDLE=/var/folders/5z/x17fjkbj0ngf4yn630d6r9v40000gn/T/vscode-git-31f47804d4.sock
+	XPC_FLAGS=0x0
+	XPC_SERVICE_NAME=0
+	_=/Volumes/Expansion/Projects/image-watermarker/.venv/bin/briefcase
+	__CFBundleIdentifier=com.microsoft.VSCode
+	__CF_USER_TEXT_ENCODING=0x1F5:0x0:0x0
+
+pyproject.toml:
+[project]
+name = "image-watermarker"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "briefcase>=0.3.24",
+    "pillow>=11.3.0",
+    "pyside6>=6.9.1",
+]
+
+# This project was generated with 0.3.24 using template: https://github.com/beeware/briefcase-template @ v0.3.24
+[tool.briefcase]
+project_name = "Python App"
+bundle = "pro.srkdesign"
+version = "0.0.1"
+url = "https://srkdesign.pro/apps/image-watermarker"
+license.file = "LICENSE"
+author = "srkdesign"
+author_email = "99723068+srkdesign@users.noreply.github.com"
+
+[tool.briefcase.app.image_watermarker]
+formal_name = "Python App"
+description = "My first application"
+long_description = """More details about the app should go here.
+"""
+sources = [
+    "src/image_watermarker",
+]
+test_sources = [
+    "tests",
+]
+
+requires = [
+    "PySide6-Essentials~=6.8",
+    # "PySide6-Addons~=6.8",
+]
+test_requires = [
+    "pytest",
+]
+
+[tool.briefcase.app.image_watermarker.macOS]
+universal_build = true
+# As of Pyside 6.8, PySide enforces a macOS 12 minimum on wheels.
+min_os_version = "12.0"
+requires = [
+    "std-nslog~=1.0.3",
+]
+
+[tool.briefcase.app.image_watermarker.linux]
+requires = [
+]
+
+[tool.briefcase.app.image_watermarker.linux.system.debian]
+system_requires = [
+]
+
+system_runtime_requires = [
+    # Derived from https://doc.qt.io/qt-6/linux-requirements.html
+    "libxext6",
+    "libxrender1",
+    "libx11-xcb1",
+    "libxkbcommon-x11-0",
+    "libxcb-image0",
+    "libxcb-cursor0",
+    "libxcb-shape0",
+    "libxcb-randr0",
+    "libxcb-xfixes0",
+    "libxcb-sync1",
+    "libxcb-icccm4",
+    "libxcb-keysyms1",
+    "libfontconfig1",
+    "libsm6",
+    "libice6",
+    "libglib2.0-0",
+    "libgl1",
+    "libegl1",
+    "libdbus-1-3",
+]
+
+[tool.briefcase.app.image_watermarker.linux.system.rhel]
+system_requires = [
+]
+
+system_runtime_requires = [
+    "qt6-qtbase-gui",
+]
+
+[tool.briefcase.app.image_watermarker.linux.system.suse]
+system_requires = [
+]
+
+system_runtime_requires = [
+    "libgthread-2_0-0",
+    "libQt6Gui6",
+]
+
+[tool.briefcase.app.image_watermarker.linux.system.arch]
+system_requires = [
+]
+
+system_runtime_requires = [
+    "qt6-base",
+]
+
+[tool.briefcase.app.image_watermarker.linux.appimage]
+manylinux = "manylinux_2_28"
+
+system_requires = [
+# ?? FIXME
+]
+
+linuxdeploy_plugins = [
+]
+
+[tool.briefcase.app.image_watermarker.linux.flatpak]
+flatpak_runtime = "org.kde.Platform"
+flatpak_runtime_version = "6.9"
+flatpak_sdk = "org.kde.Sdk"
+
+[tool.briefcase.app.image_watermarker.windows]
+requires = [
+]
+
+# Mobile deployments
+[tool.briefcase.app.image_watermarker.iOS]
+supported = false
+
+[tool.briefcase.app.image_watermarker.android]
+supported = false
+
+# Web deployments
+[tool.briefcase.app.image_watermarker.web]
+supported = false
+
+Briefcase Log:
+[11:48:25]                                                                                                                                                                dev.py:248
+           [image_watermarker] Starting in dev mode...                                                                                                                    dev.py:248
+                                                                                                                                                                   subprocess.py:838
+           >>> Running Command:                                                                                                                                    subprocess.py:838
+           >>>     /Volumes/Expansion/Projects/image-watermarker/.venv/bin/python3 -c 'import runpy,                                                               subprocess.py:838
+           sys;sys.path.pop(0);sys.argv.extend([]);runpy.run_module("image_watermarker", run_name="__main__", alter_sys=True)'                                                      
+           >>> Working Directory:                                                                                                                                  subprocess.py:838
+           >>>     /Users/srk                                                                                                                                      subprocess.py:838
+           >>> Environment Overrides:                                                                                                                              subprocess.py:838
+           >>>     PYTHONPATH=/Volumes/Expansion/Projects/image-watermarker/src                                                                                    subprocess.py:838
+           >>>     PYTHONUNBUFFERED=1                                                                                                                              subprocess.py:838
+           >>>     PYTHONDEVMODE=1                                                                                                                                 subprocess.py:838
+           >>>     PYTHONUTF8=1                                                                                                                                    subprocess.py:838
+           ===========================================================================                                                                                    run.py:169
+           Traceback (most recent call last):                                                                                                                      subprocess.py:195
+             File "<string>", line 1, in <module>                                                                                                                  subprocess.py:195
+             File "<frozen runpy>", line 226, in run_module                                                                                                        subprocess.py:195
+             File "<frozen runpy>", line 98, in _run_module_code                                                                                                   subprocess.py:195
+             File "<frozen runpy>", line 88, in _run_code                                                                                                          subprocess.py:195
+             File "/Volumes/Expansion/Projects/image-watermarker/src/image_watermarker/__main__.py", line 5, in <module>                                           subprocess.py:195
+               main()                                                                                                                                              subprocess.py:195
+             File "/Volumes/Expansion/Projects/image-watermarker/src/image_watermarker/app.py", line 210, in main                                                  subprocess.py:195
+               main_window = MainWindow()                                                                                                                          subprocess.py:195
+                             ^^^^^^^^^^^^                                                                                                                          subprocess.py:195
+             File "/Volumes/Expansion/Projects/image-watermarker/src/image_watermarker/app.py", line 65, in __init__                                               subprocess.py:195
+               self.init_ui()                                                                                                                                      subprocess.py:195
+             File "/Volumes/Expansion/Projects/image-watermarker/src/image_watermarker/app.py", line 91, in init_ui                                                subprocess.py:195
+               folder_layout.setAlignment(Qt.AlignVTop)                                                                                                            subprocess.py:195
+                                          ^^^^^^^^^^^^                                                                                                             subprocess.py:195
+           AttributeError: type object 'PySide6.QtCore.Qt' has no attribute 'AlignVTop'                                                                            subprocess.py:195
+                                                                                                                                                                      __main__.py:42
+           Problem running app image_watermarker.                                                                                                                     __main__.py:43
+           Saving log... started                                                                                                                                      console.py:433
+
+Main thread traceback:
+╭─────────────────────────────────────────────────────────────────────── Traceback (most recent call last) ────────────────────────────────────────────────────────────────────────╮
+│ /Volumes/Expansion/Projects/image-watermarker/.venv/lib/python3.12/site-packages/briefcase/__main__.py:27 in main                                                                │
+│                                                                                                                                                                                  │
+│   24 │   │   │   Path.cwd() / "pyproject.toml",                                                                                                                                  │
+│   25 │   │   │   overrides=overrides,                                                                                                                                            │
+│   26 │   │   )                                                                                                                                                                   │
+│ ❱ 27 │   │   command(**options)                                                                                                                                                  │
+│   28 │   except HelpText as e:                                                                                                                                                   │
+│   29 │   │   console.info()                                                                                                                                                      │
+│   30 │   │   console.info(str(e))                                                                                                                                                │
+│                                                                                                                                                                                  │
+│ ╭──────────────────────────────────────────────────────── locals ─────────────────────────────────────────────────────────╮                                                      │
+│ │       command = <briefcase.commands.dev.DevCommand object at 0x104746390>                                               │                                                      │
+│ │       console = <briefcase.console.Console object at 0x104284800>                                                       │                                                      │
+│ │             e = BriefcaseCommandError('Problem running app image_watermarker.')                                         │                                                      │
+│ │ extra_cmdline = []                                                                                                      │                                                      │
+│ │       options = {'appname': None, 'update_requirements': False, 'run_app': True, 'test_mode': False, 'passthrough': []} │                                                      │
+│ │     overrides = {}                                                                                                      │                                                      │
+│ │        result = 200                                                                                                     │                                                      │
+│ ╰─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯                                                      │
+│                                                                                                                                                                                  │
+│ /Volumes/Expansion/Projects/image-watermarker/.venv/lib/python3.12/site-packages/briefcase/commands/dev.py:250 in __call__                                                       │
+│                                                                                                                                                                                  │
+│   247 │   │   │   else:                                                                                                                                                          │
+│   248 │   │   │   │   self.console.info("Starting in dev mode...", prefix=app.app_name)                                                                                          │
+│   249 │   │   │   env = self.get_environment(app)                                                                                                                                │
+│ ❱ 250 │   │   │   return self.run_dev_app(                                                                                                                                       │
+│   251 │   │   │   │   app,                                                                                                                                                       │
+│   252 │   │   │   │   env,                                                                                                                                                       │
+│   253 │   │   │   │   passthrough=[] if passthrough is None else passthrough,                                                                                                    │
+│                                                                                                                                                                                  │
+│ ╭────────────────────────────────────────────────────────────────────────── locals ───────────────────────────────────────────────────────────────────────────╮                  │
+│ │                 app = <pro.srkdesign.image-watermarker v0.0.1 AppConfig>                                                                                    │                  │
+│ │             appname = None                                                                                                                                  │                  │
+│ │      dist_info_path = PosixPath('/Volumes/Expansion/Projects/image-watermarker/src/image_watermarker.dist-info')                                            │                  │
+│ │                 env = {'PYTHONPATH': '/Volumes/Expansion/Projects/image-watermarker/src', 'PYTHONUNBUFFERED': '1', 'PYTHONDEVMODE': '1', 'PYTHONUTF8': '1'} │                  │
+│ │             options = {}                                                                                                                                    │                  │
+│ │         passthrough = []                                                                                                                                    │                  │
+│ │             run_app = True                                                                                                                                  │                  │
+│ │                self = <briefcase.commands.dev.DevCommand object at 0x104746390>                                                                             │                  │
+│ │           test_mode = False                                                                                                                                 │                  │
+│ │ update_requirements = False                                                                                                                                 │                  │
+│ ╰─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯                  │
+│                                                                                                                                                                                  │
+│ /Volumes/Expansion/Projects/image-watermarker/.venv/lib/python3.12/site-packages/briefcase/commands/dev.py:168 in run_dev_app                                                    │
+│                                                                                                                                                                                  │
+│   165 │   │   │   )                                                                                                                                                              │
+│   166 │   │   │                                                                                                                                                                  │
+│   167 │   │   │   # Start streaming logs for the app.                                                                                                                            │
+│ ❱ 168 │   │   │   self._stream_app_logs(                                                                                                                                         │
+│   169 │   │   │   │   app,                                                                                                                                                       │
+│   170 │   │   │   │   popen=app_popen,                                                                                                                                           │
+│   171 │   │   │   │   clean_output=False,                                                                                                                                        │
+│                                                                                                                                                                                  │
+│ ╭────────────────────────────────────────────────────────────────────── locals ───────────────────────────────────────────────────────────────────────╮                          │
+│ │         app = <pro.srkdesign.image-watermarker v0.0.1 AppConfig>                                                                                    │                          │
+│ │   app_popen = <Popen: returncode: 1 args: ['/Volumes/Expansion/Projects/image-watermarker/...>                                                      │                          │
+│ │     cmdline = [                                                                                                                                     │                          │
+│ │               │   '/Volumes/Expansion/Projects/image-watermarker/.venv/bin/python3',                                                                │                          │
+│ │               │   '-c',                                                                                                                             │                          │
+│ │               │   'import runpy, sys;sys.path.pop(0);sys.argv.extend([]);runpy.run_module("image_wa'+48                                             │                          │
+│ │               ]                                                                                                                                     │                          │
+│ │         env = {'PYTHONPATH': '/Volumes/Expansion/Projects/image-watermarker/src', 'PYTHONUNBUFFERED': '1', 'PYTHONDEVMODE': '1', 'PYTHONUTF8': '1'} │                          │
+│ │ main_module = 'image_watermarker'                                                                                                                   │                          │
+│ │     options = {}                                                                                                                                    │                          │
+│ │ passthrough = []                                                                                                                                    │                          │
+│ │        self = <briefcase.commands.dev.DevCommand object at 0x104746390>                                                                             │                          │
+│ ╰─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯                          │
+│                                                                                                                                                                                  │
+│ /Volumes/Expansion/Projects/image-watermarker/.venv/lib/python3.12/site-packages/briefcase/commands/run.py:200 in _stream_app_logs                                               │
+│                                                                                                                                                                                  │
+│   197 │   │   │   │   # If we're monitoring an actual app (not just a log stream),                                                                                               │
+│   198 │   │   │   │   # and the app didn't exit cleanly, surface the error to the user.                                                                                          │
+│   199 │   │   │   │   if popen.poll() != 0:                                                                                                                                      │
+│ ❱ 200 │   │   │   │   │   raise BriefcaseCommandError(f"Problem running app {app.app_name}.")                                                                                    │
+│   201 │   │                                                                                                                                                                      │
+│   202 │   │   except KeyboardInterrupt:                                                                                                                                          │
+│   203 │   │   │   pass  # Catch CTRL-C to exit normally                                                                                                                          │
+│                                                                                                                                                                                  │
+│ ╭──────────────────────────────────────────── locals ─────────────────────────────────────────────╮                                                                              │
+│ │          app = <pro.srkdesign.image-watermarker v0.0.1 AppConfig>                               │                                                                              │
+│ │ clean_filter = None                                                                             │                                                                              │
+│ │ clean_output = False                                                                            │                                                                              │
+│ │   log_filter = <briefcase.commands.run.LogFilter object at 0x105411b80>                         │                                                                              │
+│ │   log_stream = False                                                                            │                                                                              │
+│ │        popen = <Popen: returncode: 1 args: ['/Volumes/Expansion/Projects/image-watermarker/...> │                                                                              │
+│ │         self = <briefcase.commands.dev.DevCommand object at 0x104746390>                        │                                                                              │
+│ ╰─────────────────────────────────────────────────────────────────────────────────────────────────╯                                                                              │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+BriefcaseCommandError: Problem running app image_watermarker.
