@@ -4,7 +4,6 @@ Image Watermarker by srkdesign
 
 import importlib.metadata
 import sys
-import os
 from importlib.resources import files
 
 from PySide6.QtWidgets import (
@@ -20,16 +19,8 @@ from image_watermarker.widgets.folder_selector import FolderSelector
 from image_watermarker.widgets.option import OptionField
 from image_watermarker.widgets.folder_opener import FolderOpener
 
-
-def get_resource_path(relative_path):
-    try:
-        base_path = sys._MEIPASS
-    except AttributeError:
-        base_path = os.path.abspath(os.path.dirname(__file__))
-    return os.path.join(base_path, relative_path)
-
 ICON_PATH = files("image_watermarker.resources").joinpath("icon.png")
-FONT_PATH = get_resource_path(os.path.join("fonts", "PPNeueMontreal-Medium.otf"))
+FONT_PATH = files("image_watermarker.resources").joinpath("fonts/PPNeueMontreal-Medium.otf")
 
 class WatermarkerWorker(QThread):
   progress = Signal(int, int, str)
