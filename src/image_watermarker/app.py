@@ -141,7 +141,7 @@ class MainWindow(QMainWindow):
     progress_layout.setSpacing(16)
     progress_layout.setAlignment(Qt.AlignVCenter)
     progress_layout.addWidget(self.status_label, alignment=Qt.AlignmentFlag.AlignHCenter)
-    progress_layout.addWidget(self.progress_bar)
+    progress_layout.addWidget(self.progress_bar, stretch=1)
 
     layout.addLayout(progress_layout)
 

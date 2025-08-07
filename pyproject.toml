@@ -12,7 +12,7 @@ dependencies = [
 
 # This project was generated with 0.3.24 using template: https://github.com/beeware/briefcase-template @ v0.3.24
 [tool.briefcase]
-project_name = "Python App"
+project_name = "Image Watermarker"
 bundle = "pro.srkdesign"
 version = "0.0.1"
 url = "https://srkdesign.pro/apps/image-watermarker"
@@ -21,10 +21,11 @@ author = "srkdesign"
 author_email = "99723068+srkdesign@users.noreply.github.com"
 
 [tool.briefcase.app.image_watermarker]
-formal_name = "Python App"
+formal_name = "Image Watermarker"
 description = "My first application"
 long_description = """More details about the app should go here.
 """
+icon = "src/image_watermarker/resources/AppIcon"
 sources = [
     "src/image_watermarker",
 ]
