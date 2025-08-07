@@ -11,7 +11,7 @@ from PySide6.QtWidgets import (
     QLabel, QProgressBar, QMessageBox, QVBoxLayout, QScrollArea,
 )
 from PySide6.QtCore import Qt, QThread, Signal
-from PySide6.QtGui import QFont
+from PySide6.QtGui import QIcon, QFont
 from PySide6.QtWidgets import QSizePolicy
 
 from image_watermarker.watermarker import Watermarker
@@ -64,6 +64,7 @@ class MainWindow(QMainWindow):
 
   def init_ui(self):
     self.setWindowTitle("Image Watermarker by srkdesign")
+    self.setWindowIcon(QIcon(str(ICON_PATH)))
     self.setMinimumSize(800, 600)
 
     self.input_folder = ""
